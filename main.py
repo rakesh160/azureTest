@@ -5,5 +5,9 @@ app = Flask(__name__)
 def hello_name(name):
    return 'Hello %s!' % name
 
+@app.route('/hello')
+def hello_name_default(name):
+   return 'Hello default'
+
 if __name__ == '__main__':
   app.run()
