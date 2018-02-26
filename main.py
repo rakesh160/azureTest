@@ -10,8 +10,8 @@ def hello_name(name):
 def hello_name_default():
    return 'Hello default'
 @app.route('/helloall/<word>')
-def hello_all(name):
-   if(name != null):
+def hello_all(word):
+   if(word != null):
       return redirect(url_for('hello_name', name=word))
    else:
       return redirect(url_for('hello_name_default'))
