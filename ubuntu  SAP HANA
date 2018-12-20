@@ -1,0 +1,67 @@
+
+
+wget --no-check-certificate -c --header "Cookie: oraclelicense=accept-securebackup-cookie" https://download.oracle.com/otn-pub/java/jdk/8u191-b12/2787e4a523244c269598db4e85c51e0c/jre-8u191-linux-x64.tar.gz
+
+
+chmod 777 -R <<downloaded file>>
+
+tar -xvzf <<downloaded file>>
+
+
+sudo mkdir /usr/lib/jre
+sudo mv <<extracted path>>  /usr/lib/jre
+sudo update-alternatives --install "/usr/bin/java" "java" "/usr/lib/jre/<<replace with returned path>>/bin/java" 1
+
+
+chmod 777 HXEDownloadManager_linux.bin
+./HXEDownloadManager_linux.bin -d /home/<<your_userid>> linuxx86_64 installer hxe.tgz
+sudo chmod -R 777 hxe.tgz
+sudo tar -xvzf hxe.tgz
+
+sudo apt-get update
+
+
+ sudo mv /bin/sh /bin/sh.orig
+sudo ln -s /bin/bash /bin/sh
+
+
+sudo cp /usr/sbin/update-rc.d /usr/sbin/update-rc.d.orig
+sudo sed -i "321i if (/^-n$/) { next }" /usr/sbin/update-rc.d
+
+sudo ./setup_hxe.sh
+
+output:
+...
+SAP HANA Express Edition System Installation
+   Installation Parameters
+      Remote Execution: ssh
+      Use single master password for all users, created during installation: Yes
+      Database Isolation: low
+      Installation Path: /hana/shared
+      Local Host Name: osboxes
+      SAP HANA System ID: HXE
+      Instance Number: 90
+      Local Host Worker Group: default
+      System Usage: development
+      Location of Data Volumes: /hana/shared/data/HXE
+      Location of Log Volumes: /hana/shared/log/HXE
+      Directory containing custom configurations: /home/osboxes/HANA_EXPRESS_20/DATA_UNITS/HDB_LCM_LINUX_X86_64/configurations/custom
+      Certificate Host Names: osboxes -> osboxes
+      System Administrator Home Directory: /usr/sap/HXE/home
+      System Administrator Login Shell: /bin/bash
+      System Administrator User ID: 1001
+      ID of User Group (sapsys): 79
+      Restart system after machine reboot?: Yes
+      Inter Service Communication Mode: ssl
+   Software Components
+      SAP HANA Database
+         Install version 2.00.033.00.1535711040
+         Location: /home/osboxes/HANA_EXPRESS_20/DATA_UNITS/HDB_SERVER_LINUX_X86_64/server
+      SAP HANA AFL (incl.PAL,BFL,OFL)
+         Install version 2.00.033.0000.1535724035
+         Location: /home/osboxes/HANA_EXPRESS_20/DATA_UNITS/HDB_AFL_LINUX_X86_64/packages
+      SAP HANA EPM-MDS
+         Install version 2.00.033.0000.1535724035
+         Location: /home/osboxes/HANA_EXPRESS_20/DATA_UNITS/SAP_HANA_EPM-MDS_10/packages
+         
+        ...
