@@ -12,9 +12,10 @@ sudo mkdir /usr/lib/jre
 sudo mv <<extracted path>>  /usr/lib/jre
 sudo update-alternatives --install "/usr/bin/java" "java" "/usr/lib/jre/<<replace with returned path>>/bin/java" 1
 
+https://www.sap.com/cmp/ft/crm-xu16-dat-hddedft/typ.html
 
 chmod 777 HXEDownloadManager_linux.bin
-./HXEDownloadManager_linux.bin -d /home/<<your_userid>> linuxx86_64 installer hxe.tgz
+./HXEDownloadManager_linux.bin -d /home/osboxes linuxx86_64 installer hxe.tgz
 sudo chmod -R 777 hxe.tgz
 sudo tar -xvzf hxe.tgz
 
@@ -29,6 +30,8 @@ sudo cp /usr/sbin/update-rc.d /usr/sbin/update-rc.d.orig
 sudo sed -i "321i if (/^-n$/) { next }" /usr/sbin/update-rc.d
 
 sudo ./setup_hxe.sh
+sudo cp -f /usr/sbin/update-rc.d.orig /usr/sbin/update-rc.d
+
 
 output:
 ...
